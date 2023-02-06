@@ -53,9 +53,12 @@ public class BookList extends ArrayList<Object>{
 	
 	public void listAllBooks() {
 		for(int i = 0; i < Books.getSize(); i ++) {
-			System.out.print(Books.get(i).getBookName() + " ");
+			System.out.println("name: " + Books.get(i).getBookName()
+					+ " publication year: " + Books.get(i).getPublicationYear()
+					+ " page: " + Books.get(i).getPage()
+					+ " subject: " + Books.get(i).getSubject()
+					+ " rating: " + Books.get(i).getRating());
 		}
-		System.out.println();
 	}
 	
 	public void listAllBooksByPublicationDate() {
@@ -70,9 +73,9 @@ public class BookList extends ArrayList<Object>{
 			}
 		}
 		for(int i = 0; i < Books.getSize(); i ++) {
-			System.out.print(Books.get(i).getBookName() + " ");
+			System.out.println("name: " + Books.get(i).getBookName()
+					+ " publication year: " + Books.get(i).getPublicationYear());
 		}
-		System.out.println();
 	}
 	
 	public void listAllBooksByLength() {
@@ -87,9 +90,9 @@ public class BookList extends ArrayList<Object>{
 			}
 		}
 		for(int i = 0; i < Books.getSize(); i ++) {
-			System.out.print(Books.get(i).getBookName() + " ");
+			System.out.println("name: " + Books.get(i).getBookName()
+					+ " page: " + Books.get(i).getPage());
 		}
-		System.out.println();
 	}
 	
 	public void listAllBooksByRating() {
@@ -104,9 +107,9 @@ public class BookList extends ArrayList<Object>{
 			}
 		}
 		for(int i = 0; i < Books.getSize(); i ++) {
-			System.out.print(Books.get(i).getBookName() + " ");
+			System.out.println("name: " + Books.get(i).getBookName()
+					+ " rating: " + Books.get(i).getRating());
 		}
-		System.out.println();
 	}
 	
 	public void sortBooksWithSubject() {
@@ -136,16 +139,6 @@ public class BookList extends ArrayList<Object>{
 			}
 		}
 		System.out.println(res);
-	}
-	
-	public void listAllDetailsForAllBooks() {
-		for(int i = 0; i < Books.getSize(); i ++) {
-			System.out.println("name: " + Books.get(i).getBookName()
-					+ " publication year: " + Books.get(i).getPublicationYear()
-					+ " page: " + Books.get(i).getPage()
-					+ " subject: " + Books.get(i).getSubject()
-					+ " rating: " + Books.get(i).getRating());
-		}
 	}
 	
 }

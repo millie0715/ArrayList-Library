@@ -1,5 +1,7 @@
 package arrayList_library;
 
+import java.util.Random;
+
 public class Book {
 	private String bookName;
 	private int publicationYear;
@@ -7,9 +9,10 @@ public class Book {
 	private String subject;
 	private double rating;
 	
-	String[] subjectType = {"Programming", "Data Structures", "Algorithms", "Operating Systems", "Gaming"};
-	int[] subjectTypeNumber = {0, 0, 0, 0, 0};
-	int[] publicationYearNumber = {0, 0, 0, 0, 0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0, 0, 0, 0, 0};
+	private static final String[] subjectType = {"Programming", "Data Structures", "Algorithms", "Operating Systems", "Gaming"};
+	private static int[] subjectTypeNumber = {0, 0, 0, 0, 0};
+	private static boolean[] generatedNumbers = new boolean[40];
+    private static Random random = new Random();
 	
 	public Book(String bn, double r) {
 		bookName = bn;
@@ -28,21 +31,21 @@ public class Book {
 	}
 	
 	public String chooseSubject() {
-		int i = (int)(Math.random()* 5);
-		if(subjectTypeNumber[i] < 5) {
-			subjectTypeNumber[i] ++;
-			return subjectType[i];
-		}
-		return chooseSubject();
+		int randomIndex = random.nextInt(subjectType.length);
+        while (subjectTypeNumber[randomIndex] >= 5) {
+            randomIndex = random.nextInt(subjectType.length);
+        }
+        subjectTypeNumber[randomIndex]++;
+        return subjectType[randomIndex];
 	}
 	
 	public int choosePublicationYear() {
-        int r = (int) (Math.random() * 40);
-        if(publicationYearNumber[r] == 0) {
-        	publicationYearNumber[r] = 1;
-        	return r + 1980;
+		int randomNumber = 1980 + random.nextInt(40);
+        while (generatedNumbers[randomNumber - 1980]) {
+            randomNumber = 1980 + random.nextInt(40);
         }
-        return choosePublicationYear();
+        generatedNumbers[randomNumber - 1980] = true;
+        return randomNumber;
 	}
 	
 	public String getBookName() {

@@ -4,7 +4,6 @@ public class Driver {
 	public static void main(String[] args) {
 		BookList list = new BookList();
 		list.addOriginalBooks();
-		list.listAllDetailsForAllBooks();
 		Scanner input = new Scanner(System.in);
 		int number = input.nextInt();
 		while(number > 0) {
